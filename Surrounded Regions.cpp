@@ -37,13 +37,13 @@ public:
         }
 
         for(int i=0;i<x;i++)
-            for(int j=0;j<y;j++)
+            for(int j=0;j<y;j++){
                 if(board[i][j]=='O')
                     board[i][j]='X';
-        for(int i=0;i<x;i++)
-            for(int j=0;j<y;j++)
+
                 if(board[i][j]=='Y')
                     board[i][j]='O';
+            }
         return;
             
     }
@@ -72,13 +72,13 @@ public:
         
         
         for(int i=0;i<x;i++)
-            for(int j=0;j<y;j++)
+            for(int j=0;j<y;j++){
                 if(board[i][j]=='O')
                     board[i][j]='X';
-        for(int i=0;i<x;i++)
-            for(int j=0;j<y;j++)
+
                 if(board[i][j]=='Y')
                     board[i][j]='O';
+            }
         return;
     }
         
