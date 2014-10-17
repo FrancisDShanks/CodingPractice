@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+'''
+Created on Oct 17, 2014
+
+@author: Xufan Du
+@email: tctcdtc@gmail.com
+'''
+
 class Solution:
     # @param s, a string
     # @return an integer
