@@ -2,7 +2,7 @@
 '''
 Created on Oct 17, 2014
 
-@author: Xufan Du
+@author: Francis Xufan Du
 @email: tctcdtc@gmail.com
 '''
 
