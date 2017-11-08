@@ -16,3 +16,18 @@ class Solution:
                 return char
                 
              
+#using XOR (much better/faster one)
+class Solution:
+    def findTheDifference(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        length = len(t)
+        xor = ord(t[length - 1])
+        for i in range(0,length-1):
+            xor ^= ord(s[i]) 
+            xor ^= ord(t[i])
+        return chr(xor)
+        
