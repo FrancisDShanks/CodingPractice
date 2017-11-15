@@ -37,3 +37,10 @@ class Solution:
             prepre = pre
             pre = tmp
         return pre
+
+    
+    
+    
+#a sulotion for who is good at math !
+#using the Fibonacci formula
+fn = (1/sqrt(5)) * ((1+sqrt(5)/2)**n - (1-sqrt(5)/2)**n)
