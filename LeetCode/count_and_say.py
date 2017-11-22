@@ -35,5 +35,24 @@ class Solution:
                 
                 
 #possible solutions
-    using re
-    using groupby
+#using re
+
+
+
+
+#using groupby
+class Solution:
+    def countAndSay(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        term = '1'
+        for _ in range(n-1):            
+            newterm = ''
+            for key,group in itertools.groupby(term):
+                newterm += (str(len(list(group))) + key)
+            term = newterm
+                
+        return term 
+        
