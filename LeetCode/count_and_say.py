@@ -5,7 +5,7 @@ class Solution:
         :rtype: str
         """
         term = '1'
-        for i in range(1,n):
+        for _ in range(n-1):
             #notice here!!!!!!!!!!!!!!
             count = 0
             curchar = term[0]
