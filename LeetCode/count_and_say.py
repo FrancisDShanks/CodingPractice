@@ -34,3 +34,6 @@ class Solution:
         return term
                 
                 
+#possible solutions
+    using re
+    using groupby
