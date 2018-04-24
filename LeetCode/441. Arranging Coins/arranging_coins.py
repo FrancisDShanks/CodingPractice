@@ -1,4 +1,5 @@
 # A simple math problem
+# more mathematical solution is just res = int(math.sqrt(8*n+1)//2-1)
 class Solution:
     def arrangeCoins(self, n):
         """
