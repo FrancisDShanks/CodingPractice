@@ -18,11 +18,8 @@ class Solution:
         :type root: TreeNode
         :rtype: int
         """
-        if root is None:
-            return None
         l = self.inOrder(root)
         mindif = l[1] - l[0]
         for i in range(2,len(l)):
-            if l[i] - l[i-1] < mindif:
-                mindif = l[i] - l[i-1]
+            mindif = min(mindif, abs(l[i] - l[i-1]))
         return mindif
