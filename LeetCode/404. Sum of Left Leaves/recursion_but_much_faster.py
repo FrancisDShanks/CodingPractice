@@ -1,10 +1,8 @@
 # 这样写同样是递归,代码用的算法完全一样, 速度快了很多
-# 原因是将helper函数嵌套定义在sumOfLeftLeaves函数里面,值得玩味
+# 原因是将helper函数嵌套定义在sumOfLeftLeaves函数里面
+# 这里的helper()方法作用域就在sumOfLeftLeaves()中,在之外就不能调用了
 
-class Solution:
-    
-
-        
+class Solution:     
     def sumOfLeftLeaves(self, root):
         """
         :type root: TreeNode
