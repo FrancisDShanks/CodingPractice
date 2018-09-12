@@ -6,15 +6,15 @@ class Solution:
         """
         l = len(s)
         if l==1:return False
-        for i in range(0,l//2):
-            sub = s[:i+1]
-            lsub = len(sub)
-
-            if l%lsub != 0:
+        # only check substring with len 1-len(s)//2+1
+        for i in range(1,l//2+1):
+            # skip substring whose length cannot be divided by len(s)
+            if l%i != 0:
                 continue
-
-            if sub*(l//lsub) == s:
+            # check if there is a pattern
+            if s[:i]*(l//i) == s:
                 return True
         return False
+                
                 
         
