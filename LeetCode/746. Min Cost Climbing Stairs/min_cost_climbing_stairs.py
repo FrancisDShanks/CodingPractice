@@ -19,9 +19,8 @@ class Solution:
         :type cost: List[int]
         :rtype: int
         """
-        tmp1 = cost[0]
-        tmp2 = cost[1]
-        for i in range(2,len(cost)):
-            tmp1,tmp2 = tmp2, min(tmp1,tmp2)+cost[i]
+        tmp1,tmp2 = cost[0],cost[1]
+        for i in cost[2:]:
+            tmp1,tmp2 = tmp2, min(tmp1,tmp2)+i
         return min(tmp1,tmp2)
         
