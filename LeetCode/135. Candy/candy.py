@@ -4,7 +4,7 @@
 # second loop from right to left, do the same thing
 # I made a mistake in my first submission like this:
 # c[i-1] = c[i] + 1
-# I didn't realize the value if c[i-1] get from the first loop may be overwriten in the second loop
+# I didn't realize the value of c[i-1] get from the first loop may be overwriten in the second loop
 # the correct algorithm should be:
 # c[i-1] = max(c[i-1],c[i]+1)
 
