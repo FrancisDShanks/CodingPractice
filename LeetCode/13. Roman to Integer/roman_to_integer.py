@@ -1,3 +1,4 @@
+# straight foward solution
 class Solution:
     def romanToInt(self, s):
         """
@@ -23,4 +24,39 @@ class Solution:
                     res += rad2[index2]
             index1 -= 1
             index2 -= 1
+        return res
+
+
+    
+    
+    
+    
+    
+# faster algorithm
+#如果不出现减的情况,整个roman串应该是从左到右变小的,所以如果当前字符比前一个字符小(或相等),那就加上这个字符代表的数
+#如果是出现减的情况,比如IV,那么当前字符就比前一个字符大,前一个字符多加了一次,所以加上(-2*pre+cur)
+# 对于IV,就是先多加了一个1再加(-2+5)
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        d = {'M':1000,
+             'D':500,
+             'C':100,
+             'L':50,
+             'X':10,
+             'V':5,
+             'I':1
+            }
+        pre = 4000
+        res = 0
+        for letter in s:
+            cur = d[letter]
+            if cur <= pre:
+                res += cur
+                pre = cur
+            else:
+                res = res - 2*pre + cur
         return res
