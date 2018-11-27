@@ -18,3 +18,22 @@ class Solution:
             if v not in res:
                 res.append(v)
         return res
+
+    
+    
+# solution - 2 
+class Solution:
+    def subsetsWithDup(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = [[]]
+        for i in nums:
+            l = len(res)
+            for j in range(l):
+                tmp = res[j] + [i]
+                tmp.sort()
+                if tmp not in res:
+                    res.append(tmp)
+        return res
