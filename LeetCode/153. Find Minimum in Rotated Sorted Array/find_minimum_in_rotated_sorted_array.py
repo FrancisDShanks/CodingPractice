@@ -1,3 +1,4 @@
+# solution - 1
 #using binary search
 class Solution:
     def findMin(self, nums):
@@ -21,7 +22,7 @@ class Solution:
         return min(nums[start], nums[end])
         
         
-        
+# solution - 2        
 #a better solution using binary search        
 class Solution:
     def findMin(self, nums):
