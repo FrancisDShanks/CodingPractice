@@ -11,6 +11,7 @@ class Solution:
             mid = left + (right - left) // 2 
             if nums[mid] == target:
                 return True
+            # 因为有重复的数字,所以[1,1,1,1,3,1,1,1]这种情况就不知道在mid左还是右,就直接left+=1,再继续计算
             elif nums[left] == nums[mid] : 
                 left += 1
             elif nums[left] < nums[mid]:
