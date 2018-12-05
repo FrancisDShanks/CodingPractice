@@ -12,10 +12,8 @@ class Solution:
         :type q: TreeNode
         :rtype: bool
         """
-        if not p and not q:
+        if p is None and q is None:
             return True
-        if not p or not q:
+        if p is None or q is None:
             return False
-        if p.val != q.val:
-            return False
-        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
+        return p.val == q.val and self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
