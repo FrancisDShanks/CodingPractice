@@ -46,6 +46,8 @@ class Solution:
 # optimized from solution 1, use 1-dimension list to save memory usage
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
+        if word1 == word2:
+            return 0
         if not word1 or not word2:
             return max(len(word1), len(word2))
 
