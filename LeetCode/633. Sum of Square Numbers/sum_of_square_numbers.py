@@ -1,3 +1,4 @@
+# nothing much to say, approch from both side and search from 0~sqrt(c) to save time
 import math
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
