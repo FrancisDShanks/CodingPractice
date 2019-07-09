@@ -1,6 +1,6 @@
 # this problem can be solved with dp
 # draw a matrix of A and B, then it can be easily found that:
-# let dp[i][j] be the length of subarray of A(0~i) B(0~j)
+# let dp[i][j] be the max length of subarray of A(0~i) and B(0~j) (数组A的前i个数字和数组B的前j个数字的最长子数组的长度)
 # if A[i]==B[j], then dp[i][j] = dp[i-1][j-1] + 1
 # modified to use a one-dimensional array to save memory cost
 class Solution:
