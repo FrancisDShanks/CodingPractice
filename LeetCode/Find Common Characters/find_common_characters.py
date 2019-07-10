@@ -28,7 +28,7 @@ class Solution:
         while i <= len(A[0]) - 1:
             if all(A[0][i] in item for item in A):
                 results.append(A[0][i])
-                A = [item.replace(A[0][i], '', 1) for item in A]
+                A = [item.replace(A[0][i], '', 1) for item in A] # only replace the first encounter here
                 i -= 1
             i += 1
         return results
