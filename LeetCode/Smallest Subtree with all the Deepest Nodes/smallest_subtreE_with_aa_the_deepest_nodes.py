@@ -41,3 +41,18 @@ class Solution:
             return self.helper(node.right)
             
             
+# a better implementation, same idea
+class Solution:
+    def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
+        def dfs(node):
+            if not node:
+                return 0, None
+            l = dfs(node.left)
+            r = dfs(node.right)
+            if l[0] == r[0]:
+                return l[0] + 1, node
+            elif l[0] > r[0]:
+                return l[0] + 1, l[1]
+            else:
+                return r[0] + 1, r[1]
+        return dfs(root)[1]
