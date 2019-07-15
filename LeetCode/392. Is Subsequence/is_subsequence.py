@@ -40,10 +40,13 @@ class Solution:
 # the time complexity of the initialize dict_t take O(size(t)) time and O(size(t)) storage
 # for a s
 # search each char from s in dict_t
-# eg: s='aj'
+# eg: s='ajj'
 # for the first 'a', search it in dict_t['a'] which is [0,5]
 # the search is a problem 'insert a number in a sorted list' which is a typical binary search problem
 # it takes size(s) * O(log?) time
+# the result of search 'a' in dict_t is 0
+# then search 'j' after 0, result if 2
+# then search 'j' after 2, result is 7. The s is used up, so return True.
 # details can be found in the following code
 
 from collections import defaultdict
@@ -56,8 +59,10 @@ class Solution:
         pre = 0
         for i, c in enumerate(s):
             loc = bisect_left(dt[c], pre)
+            # insertion place is the end of dt[c], means no found
             if loc == len(dt[c]):
                 return False
+            # next time, search from pre
             pre = dt[c][loc] + 1
             
         return True
