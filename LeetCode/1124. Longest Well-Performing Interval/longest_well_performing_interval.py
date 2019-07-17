@@ -1,29 +1,27 @@
-from collections import Counter
 class Solution:
-    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        c = Counter(arr1)
-        ret = []
-        for i in arr2:
-            ret.extend([i] * c[i])
-            del c[i]
-        if c:            
-            tmp = []
-            for k, v in c.items():             
-                tmp.extend([k] * v)
-            tmp.sort()
-            ret.extend(tmp)
-        return ret
-       
-       
-# same idea, different implement
-class Solution:
-    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        idx = {n: i for i, n in enumerate(arr2)}
-        tmp = [[] for _ in range(len(arr2))]
-        rest = []
-        for i, n in enumerate(arr1):
-            if n in idx:
-                tmp[idx[n]].append(n)
+    def longestWPI(self, hours):
+        # record prefix sum(sum from 0 to i)
+        pre = 0
+        ret = 0
+        shown = {}
+        for i, h in enumerate(hours):
+            pre = pre + 1 if h > 8 else pre - 1
+            # if prefix of 0~i larger than 0, then 0~i as a whole is WPI
+            # and it must larger than previous ret
+            if pre > 0:
+                ret = i + 1
             else:
-                rest.append(n)
-        return [row[i] for row in tmp for i in range(len(row))] + sorted(rest)
+                # if prefix < 0, the WPI of interval 0~i is either previous ret(previous shown possibility of WPI intervals)
+                # or WPI of interval shown[pre - 1] ~ i(a new interval contains position i)
+                # explain: 
+                # because the prefix sum is always continous(because new pre = pre + 1 or -1)
+                # so if pre shown before, then interval position shown[pre] ~ position i is a interval sum 0, 
+                # 想象一个连续曲线,两个相同的y值意味着曲线一定由相同数量1和-1组成
+                # so if (pre-1) shown before, than position shown[pre-1] ~ position i is a interval sum 1, which is a WPI
+                
+                shown.setdefault(pre, i)
+                if pre - 1 in shown:
+                    ret = max(ret, i - shown[pre - 1])
+        return ret
+                    
+                
