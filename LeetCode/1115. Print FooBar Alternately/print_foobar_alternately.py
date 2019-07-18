@@ -16,3 +16,27 @@ class FooBar:
             if self.semaphore[1].acquire():
                 printBar()
                 self.semaphore[0].release()
+
+                
+                
+from threading import Event
+class FooBar:
+    def __init__(self, n):
+        self.n = n
+        self.event = [Event(), Event()]
+        self.event[0].set()
+
+    def foo(self, printFoo: 'Callable[[], None]') -> None:     
+        for i in range(self.n):
+            if self.event[0].wait():
+                printFoo()
+                self.event[0].clear()  
+                self.event[1].set()
+
+    def bar(self, printBar: 'Callable[[], None]') -> None:    
+        for i in range(self.n):
+            if self.event[1].wait():
+                printBar()
+                self.event[1].clear()
+                self.event[0].set()
+                
