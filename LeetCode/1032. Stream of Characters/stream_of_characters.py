@@ -32,3 +32,20 @@ class StreamChecker:
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)
 # param_1 = obj.query(letter)
+
+
+# solution - 2
+# a concise and fast solution learned from leetcode discussion
+# trie is too heavy in this problem - 杀鸡用牛刀了
+class StreamChecker:
+
+    def __init__(self, words: List[str]):
+        self.s = ''
+        self.dic = collections.defaultdict(set)
+        for w in words:
+            self.dic[w[-1]].add(w)
+                
+
+    def query(self, letter: str) -> bool:
+        self.s += letter
+        return any(self.s.endswith(w) for w in self.dic[letter])
