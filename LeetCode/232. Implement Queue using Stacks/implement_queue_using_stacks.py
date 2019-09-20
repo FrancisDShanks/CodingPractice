@@ -1,48 +1,50 @@
 # 用两个栈实现,正解
+# push_back 的时候,放进spush
+# pop_head或者peak_head 的时候, 把spush中的都倒到spop里,取栈顶就行
 class MyQueue:
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self._ps = []
-        self._pp = []
+        self._spush = []
+        self._spop = []
         
 
     def push(self, x: int) -> None:
         """
         Push element x to the back of queue.
         """
-        self._ps.append(x)
+        self._spush.append(x)
         
-    def ps_to_pp(self):
-        while self._ps:
-            self._pp.append(self._ps.pop())
+    def spush_to_spop(self):
+        while self._spush:
+            self._spop.append(self._spush.pop())
 
             
     def pop(self) -> int:
         """
         Removes the element from in front of queue and returns that element.
         """
-        if not self._pp:
-            self.ps_to_pp()
-        return self._pp.pop()
+        if not self._spop:
+            self.spush_to_spop()
+        return self._spop.pop()
         
 
     def peek(self) -> int:
         """
         Get the front element.
         """
-        if not self._pp:
-            self.ps_to_pp()
-        return self._pp[-1]
+        if not self._spop:
+            self.spush_to_spop()
+        return self._spop[-1]
         
 
     def empty(self) -> bool:
         """
         Returns whether the queue is empty.
         """
-        return not self._ps and not self._pp
+        return not self._spush and not self._spop
         
 
 
