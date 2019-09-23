@@ -9,15 +9,12 @@ class Solution:
     def hasCycle(self, head: ListNode) -> bool:
         if not head:
             return False
-        p1 = head
-        p2 = head.next
-        while p1 and p2:
+        p1, p2 = head, head
+        while p2.next and p2.next.next:    
+            p1 = p1.next
+            p2 = p2.next.next
             if p1 == p2:
                 return True
-            p1 = p1.next
-            if not p2.next:
-                return False
-            p2 = p2.next.next
         return False
             
             
