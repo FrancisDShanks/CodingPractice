@@ -74,3 +74,26 @@ class Solution(object):
         return route[::-1]
 
 
+# 网上看到的欧拉通路解法
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        """
+        当碰到死路的时候就回溯到最近一个还有出路的节点，然后把回溯的路径放到最后去访问
+        https://blog.csdn.net/fuxuemingzhu/article/details/83551204
+        Time: O()
+        """
+        graph = collections.defaultdict(list)
+        for f, to in tickets:
+            graph[f].append(to)
+        res = []
+        # reverse sort "tos"
+        for key in graph:
+            graph[key].sort(reverse=True)
+        self.dfs(graph, 'JFK', res)
+        return res[::-1]
+        
+    def dfs(self, graph, f, res):
+        while graph[f]:
+            new_f = graph[f].pop()
+            self.dfs(graph, new_f, res)
+        res.append(f)
