@@ -60,16 +60,17 @@ class Solution(object):
 3、不断重复1、2，直到所有边全部遍历
 可以模拟一下[["JFK","ATL"],["ATL","SFO"],["SFO","JFK"],["JFK","LAS"],["LAS","ATL"],["ATL","ABC"]]，可以看到这个方法非常巧妙
 '''
-def findItinerary(self, tickets):
-    targets = collections.defaultdict(list)
-    for a, b in sorted(tickets)[::-1]:
-        targets[a] += b,
-    route = []
-    def visit(airport):
-        while targets[airport]:
-            visit(targets[airport].pop())
-        route.append(airport)
-    visit('JFK')
-    return route[::-1]
+class Solution(object):
+    def findItinerary(self, tickets):
+        targets = collections.defaultdict(list)
+        for a, b in sorted(tickets)[::-1]:
+            targets[a] += b,
+        route = []
+        def visit(airport):
+            while targets[airport]:
+                visit(targets[airport].pop())
+            route.append(airport)
+        visit('JFK')
+        return route[::-1]
 
-            
+
