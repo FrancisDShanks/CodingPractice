@@ -33,8 +33,11 @@ class Solution:
                 deq.popleft()
             ret.append(nums[deq[0]])
         return ret
-        
-            
+
+# 一点总结:
+# 因为滑动窗口的特性,滑动一次,左边去掉n个数,右边加入n个数
+# 这个操作就符合队列的定义,所以看到滑动窗口,都可以考虑队列,或者高级的队列比如,deque,priorityqueue
+# 这题也能用priorityqueue做,也就是利用堆,时间复杂度是O(nlogn)
         
 
 
