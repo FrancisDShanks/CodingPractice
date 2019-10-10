@@ -1,3 +1,4 @@
+# 可以用DFS或者BFS, 也可以用并查集做
 # recursive 
 class Solution:
     def dfs(self, grid, i, j):
